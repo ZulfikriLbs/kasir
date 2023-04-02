@@ -17,9 +17,9 @@ class Zmerchant extends AbstractSeed
   {
     $data = array(
       array(
-        'merchant_name' => 'semoga berkah',
+        'merchant_name' => 'PT . XXXX',
         'merchant_telephone' => '08123123',
-        'merchant_address' => 'jakarta',
+        'merchant_address' => 'Tebing Tinggi',
         'merchant_description' => 'Velit ullamco occaecat exercitation nisi exercitation do reprehenderit eiusmod dolore ipsum duis exercitation.',
         'created_by' => 1,
       ),

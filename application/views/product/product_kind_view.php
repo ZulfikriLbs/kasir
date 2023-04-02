@@ -27,7 +27,7 @@
         <div class="container-fluid">
 
           <?php
-            if($this->session->userdata('create')) {
+            if($this->session->userdata('role')=='admin') {
               echo('<button class="btn btn-success" onclick="add_kind()"><i class="glyphicon glyphicon-plus"></i>Tambah</button><br><br>');
             }
           ?>

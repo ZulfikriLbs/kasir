@@ -40,8 +40,8 @@ class Transaction extends CI_Controller
 					'product_name'     => $cart['name'],
 					'price'            => $cart['price'],
 					'qty'              => $cart['qty'],
-					'created_at'       => date('Y-m-d h:i:s'),
-					'updated_at'       => date('Y-m-d h:i:s'),
+					'created_at'       => date('Y-m-d H:i:s'),
+					'updated_at'       => date('Y-m-d H:i:s'),
 				];
 
 				$res      = $this->model_product->get_product_qty($cart['id']);

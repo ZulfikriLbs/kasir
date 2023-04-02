@@ -38,10 +38,10 @@
                 <th>Id</th>
                 <th>Nama</th>
                 <th>Qty</th>
+                <th>Harga satuan (Rp.)</th>
+                <th>Jumlah Bayar (Rp.)</th>
                 <th>Kasir</th>
-                <th>Harga satuan</th>
-                <th>Jumlah Bayar</th>
-                <th>Tanggal</th>
+                <th>Tanggal Penjualan</th>
               </tr>
             </thead>
             <tbody>

@@ -309,9 +309,9 @@ class Option extends CI_Controller
 			$row[]  = $barang->transaction_code;
 			$row[]  = $barang->product_name;
 			$row[]  = $barang->qty;
-			$row[]  = $barang->user_name;
 			$row[]  = $barang->price;
 			$row[]  = $barang->price * $barang->qty;
+			$row[]  = $barang->user_name;
 			$row[]  = $barang->created_at;
 			$data[] = $row;
 		}

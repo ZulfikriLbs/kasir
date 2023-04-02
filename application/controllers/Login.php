@@ -36,7 +36,7 @@ class Login extends CI_Controller
 			echo json_encode(
 				[
 					'status'  => 400,
-					'message' => 'email required',
+					'message' => 'Email wajib diisi',
 				]
 			);
 
@@ -47,7 +47,7 @@ class Login extends CI_Controller
 			echo json_encode(
 				[
 					'status'  => 400,
-					'message' => 'password required',
+					'message' => 'Password wajib diisi!',
 				]
 			);
 
@@ -60,7 +60,7 @@ class Login extends CI_Controller
 			echo json_encode(
 				[
 					'status'  => 400,
-					'message' => 'email not register',
+					'message' => 'Email salah atau tidak terdaftar',
 				]
 			);
 
@@ -71,7 +71,7 @@ class Login extends CI_Controller
 			echo json_encode(
 				[
 					'status'  => 400,
-					'message' => 'yaur account not active',
+					'message' => 'Akun Anda Tidak Aktif',
 				]
 			);
 
@@ -82,7 +82,7 @@ class Login extends CI_Controller
 			echo json_encode(
 				[
 					'status'  => 400,
-					'message' => 'wrong password',
+					'message' => 'Password Salah!',
 				]
 			);
 

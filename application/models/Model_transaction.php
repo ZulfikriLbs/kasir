@@ -27,6 +27,7 @@ class Model_transaction extends CI_Model
 
 	private function _get_datatables_query()
 	{
+		$this->db->select('transactions.created_at, transactions.transaction_code, transactions.product_name, transactions.qty, transactions.price, products.selling_price, products.purchase_price, users.user_name');
 		$this->db->from($this->table);
 		$this->db->join('products', 'products.product_id = transactions.product_id');
 		$this->db->join('users', 'users.user_id = transactions.created_by');

@@ -23,12 +23,12 @@
   </li>
   <hr class="sidebar-divider">
 
-  <li class="nav-item" id="member">
+  <!--<li class="nav-item" id="member">
     <a class="nav-link" href="<?= site_url() ?>member">
     <i class="fas fa-fw fa-cubes"></i>
     <span>Member</span></a>
   </li>
-  <hr class="sidebar-divider">
+  <hr class="sidebar-divider">-->
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct" aria-expanded="true" aria-controls="collapseProduct">
