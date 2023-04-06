@@ -3,7 +3,8 @@
 		"php": ">=5.4.8",
 		"codeigniter/framework": "~3.1",
 		"vlucas/phpdotenv": "^5.3",
-		"fakerphp/faker": "^1.19"
+		"fakerphp/faker": "^1.19",
+		"mike42/escpos-php": "^2.2"
 	},
 	"require-dev": {
 		"robmorgan/phinx": "^0.12.7"
