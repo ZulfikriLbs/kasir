@@ -392,14 +392,14 @@ class Option extends CI_Controller
 
 			/* Name of shop */
 			$printer -> selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
-			$printer -> text("ExampleMart Ltd.\n");
+			$printer -> text("PT. Sumatera FAN JAYA.\n");
 			$printer -> selectPrintMode();
 			$printer -> text("Shop No. 42.\n");
 			$printer -> feed();
 
 			/* Title of receipt */
 			$printer -> setEmphasis(true);
-			$printer -> text("SALES INVOICE\n");
+			$printer -> text("Tagihan\n");
 			$printer -> setEmphasis(false);
 
 			/* Items */
