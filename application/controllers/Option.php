@@ -410,13 +410,13 @@ class Option extends CI_Controller
 			foreach ($items as $item) {
 				$printer -> text($item);
 			}
-			$printer -> setEmphasis(true);
-			$printer -> text($subtotal);
+			// $printer -> setEmphasis(true);
+			// $printer -> text($subtotal);
 			$printer -> setEmphasis(false);
 			$printer -> feed();
 
 			/* Tax and total */
-			$printer -> text($tax);
+			//$printer -> text($tax);
 			$printer -> selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
 			$printer -> text($total);
 			$printer -> selectPrintMode();
