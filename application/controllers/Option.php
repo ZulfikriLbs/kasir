@@ -362,7 +362,7 @@ class Option extends CI_Controller
 		echo json_encode($output);
 	}
 
-	public function cetak($datas)
+	public function cetak($datas = [])
 	{
 		try{
 			/* Fill in your own connector here */
