@@ -380,7 +380,7 @@ class Option extends CI_Controller
 			}
 			//$subtotal = new item('Subtotal', '12.95');
 			//$tax = new item('A local tax', '1.30');
-			$total = new item('Total', number_format($data['qty'] * $data["price"], 0, '.', ','));
+			$total = new item('Total', number_format($tot,2, 0, '.', ','));
 			/* Date is kept the same for testing */
 			$date = date('l jS \of F Y h:i:s A');
 			//$date = "Monday 6th of April 2015 02:56:25 PM";
@@ -396,6 +396,7 @@ class Option extends CI_Controller
 			/* Name of shop */
 			//$printer -> selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
 			$printer -> text("Rumah UMKM Satu Nusantara\n");
+			$printer -> text("Jalan Belidaan No.6, Cempedak Lobang, Kec. Sei Rampah, Kabupaten Serdang Bedagai, Sumatera Utara 20995");
 			$printer -> selectPrintMode();
 			//$printer -> text("Shop No. 42.\n");
 			$printer -> feed();
@@ -414,7 +415,7 @@ class Option extends CI_Controller
 				$printer -> text($item);
 			}
 			$printer -> setEmphasis(true);
-			$printer -> text(new item('', '---------------'));
+			$printer -> text(new item('', '----------'));
 			// $printer -> setEmphasis(true);
 			// $printer -> text($subtotal);
 			$printer -> setEmphasis(false);
