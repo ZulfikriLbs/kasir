@@ -162,6 +162,7 @@ class Option extends CI_Controller
 		$no      = 1;
 		$datas = $this->cart->contents();
 		$this->cetak($datas);
+		$this->cetak($datas);
 
 		$output  = '';
 
