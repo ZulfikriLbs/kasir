@@ -366,7 +366,7 @@ class Option extends CI_Controller
 	{
 		try{
 			/* Fill in your own connector here */
-			$connector = new WindowsPrintConnector("kasir");
+			$connector = new WindowsPrintConnector("kasir2");
 
 			/* Information for the receipt */
 			$tot = 0;
