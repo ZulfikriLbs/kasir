@@ -373,7 +373,8 @@ class Option extends CI_Controller
 			$items = [];
 			foreach($datas as $data){
 				$tot += $data['qty'] * $data["price"];
-				$items[] = new item($data['qty']." ".$data['name'], number_format($data['qty'] * $data["price"], 0, '.', ','));
+				$items[] = new item($data['qty']." ".$data['name'], '');
+				$items[] = new item(' ', number_format($data['qty'] * $data["price"], 0, '.', ','));
 			}
 			//$subtotal = new item('Subtotal', '12.95');
 			//$tax = new item('A local tax', '1.30');
@@ -424,8 +425,8 @@ class Option extends CI_Controller
 			/* Footer */
 			$printer -> feed(2);
 			$printer -> setJustification(Printer::JUSTIFY_CENTER);
-			$printer -> text("Thank you for shopping at ExampleMart\n");
-			$printer -> text("For trading hours, please visit example.com\n");
+			// $printer -> text("Thank you for shopping at ExampleMart\n");
+			// $printer -> text("For trading hours, please visit example.com\n");
 			$printer -> feed(2);
 			$printer -> text($date . "\n");
 
