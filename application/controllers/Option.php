@@ -418,7 +418,7 @@ class Option extends CI_Controller
 
 			/* Tax and total */
 			//$printer -> text($tax);
-			$printer -> selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
+			//$printer -> selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
 			$printer -> text($total);
 			$printer -> selectPrintMode();
 
