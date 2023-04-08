@@ -372,8 +372,8 @@ class Option extends CI_Controller
 			$tot = 0;
 			$items = [];
 			foreach($datas as $data){
-				$tot += $data["price"];
-				$items[] = new item($data['qty']." ".$data['name'], $data["price"]);
+				$tot += $data['qty'] * $data["price"];
+				$items[] = new item($data['qty']." ".$data['name'], number_format($data['qty'] * $data["price"], 0, '.', ','));
 			}
 			//$subtotal = new item('Subtotal', '12.95');
 			//$tax = new item('A local tax', '1.30');
@@ -391,10 +391,10 @@ class Option extends CI_Controller
 			//$printer -> graphics($logo);
 
 			/* Name of shop */
-			$printer -> selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
-			$printer -> text("PT. Sumatera FAN JAYA.\n");
+			//$printer -> selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
+			$printer -> text("Rumah UMKM Satu Nusantara\n");
 			$printer -> selectPrintMode();
-			$printer -> text("Shop No. 42.\n");
+			//$printer -> text("Shop No. 42.\n");
 			$printer -> feed();
 
 			/* Title of receipt */
