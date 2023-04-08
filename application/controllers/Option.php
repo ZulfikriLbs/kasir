@@ -395,8 +395,10 @@ class Option extends CI_Controller
 
 			/* Name of shop */
 			//$printer -> selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
-			$printer -> text("Rumah UMKM Satu Nusantara\n");
-			$printer -> text("Jalan Belidaan No.6, Cempedak Lobang, Kec. Sei Rampah, Kabupaten Serdang Bedagai, Sumatera Utara 20995");
+			$printer -> setEmphasis(true);
+			$printer -> text("RUMAH UMKM SATU NUSANTARA\n");
+			$printer -> setEmphasis(false);
+			$printer -> text("Jalan Belidaan No.6, Cempedak Lobang, Kec. Sei Rampah, Kabupaten Serdang Bedagai, Sumatera Utara 20995\n");
 			$printer -> selectPrintMode();
 			//$printer -> text("Shop No. 42.\n");
 			$printer -> feed();
@@ -430,7 +432,7 @@ class Option extends CI_Controller
 			/* Footer */
 			$printer -> feed(2);
 			$printer -> setJustification(Printer::JUSTIFY_CENTER);
-			// $printer -> text("Thank you for shopping at ExampleMart\n");
+			$printer -> text("Terima kasih telah berbelanja.\n");
 			// $printer -> text("For trading hours, please visit example.com\n");
 			$printer -> feed(2);
 			$printer -> text($date . "\n");
