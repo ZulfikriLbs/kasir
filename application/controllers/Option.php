@@ -372,13 +372,15 @@ class Option extends CI_Controller
 			$tot = 0;
 			$items = [];
 			foreach($datas as $data){
+				$str = $data['qty']." ".$data['name'];
+				$str = strlen($str) <= 40 ? $str : substr($str, 0, 40) . '...';
 				$tot += $data['qty'] * $data["price"];
-				$items[] = new item($data['qty']." ".$data['name'], '');
+				$items[] = new item($str, '');
 				$items[] = new item(' ', number_format($data['qty'] * $data["price"], 0, '.', ','));
 			}
 			//$subtotal = new item('Subtotal', '12.95');
 			//$tax = new item('A local tax', '1.30');
-			$total = new item('Total', $tot, true);
+			$total = new item('Total', number_format($data['qty'] * $data["price"], 0, '.', ','));
 			/* Date is kept the same for testing */
 			$date = date('l jS \of F Y h:i:s A');
 			//$date = "Monday 6th of April 2015 02:56:25 PM";
@@ -406,11 +408,13 @@ class Option extends CI_Controller
 			/* Items */
 			$printer -> setJustification(Printer::JUSTIFY_LEFT);
 			$printer -> setEmphasis(true);
-			$printer -> text(new item('', '$'));
+			$printer -> text(new item('', 'Rp.'));
 			$printer -> setEmphasis(false);
 			foreach ($items as $item) {
 				$printer -> text($item);
 			}
+			$printer -> setEmphasis(true);
+			$printer -> text(new item('', '---------------'));
 			// $printer -> setEmphasis(true);
 			// $printer -> text($subtotal);
 			$printer -> setEmphasis(false);
