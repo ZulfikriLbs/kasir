@@ -380,7 +380,7 @@ class Option extends CI_Controller
 			}
 			//$subtotal = new item('Subtotal', '12.95');
 			//$tax = new item('A local tax', '1.30');
-			$total = new item('Total', number_format($tot,2, 0, '.', ','));
+			$total = new item('Total', number_format($tot, 0, '.', ','));
 			/* Date is kept the same for testing */
 			$date = date('l jS \of F Y h:i:s A');
 			//$date = "Monday 6th of April 2015 02:56:25 PM";
