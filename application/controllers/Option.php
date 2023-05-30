@@ -7,8 +7,9 @@ $dotenv->load();
 
 use Mike42\Escpos\Printer;
 use Mike42\Escpos\EscposImage;
-use Mike42\Escpos\PrintConnectors\FilePrintConnector;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Option extends CI_Controller
 {
@@ -334,6 +335,53 @@ class Option extends CI_Controller
 		echo json_encode($output);
 	}
 
+	public function fetch_laporan_penjualan()
+	{
+		if ($this->input->post('tanggal_filter') !== null){
+			$tanggal = explode(' - ', $this->input->post('tanggal_filter'));
+			$tipe = $this->input->post('type');
+		}else if ($this->input->get('tanggal_filter') !== null){
+			$tanggal = explode(' - ', $this->input->get('tanggal_filter'));
+			$tipe = $this->input->get('type');
+		}
+		$this->db->select('transactions.created_at, transactions.transaction_code, transactions.product_name, transactions.qty, transactions.price, products.selling_price, products.purchase_price, users.user_name');
+		$this->db->from('transactions');
+		$this->db->join('products', 'products.product_id = transactions.product_id');
+		$this->db->join('users', 'users.user_id = transactions.created_by');
+		$this->db->where("DATE(transactions.created_at) BETWEEN '$tanggal[0]' AND '$tanggal[1]'");
+		$this->db->order_by('transactions.created_at');
+		$query = $this->db->get();
+		$data = $query->result();
+		if ($tipe == 'excel'){
+			$spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+			for ($i = 0, $l = sizeof($headers); $i < $l; $i++) {
+				$sheet->setCellValueByColumnAndRow($i + 1, 1, $headers[$i]);
+			}
+
+			for ($i = 0, $l = sizeof($data); $i < $l; $i++) { // row $i
+				$j = 0;
+				foreach ($data[$i] as $k => $v) { // column $j
+					$sheet->setCellValueByColumnAndRow($j + 1, ($i + 1 + 1), $v);
+					$j++;
+				}
+			}
+
+			$writer = new Xlsx($spreadsheet);
+			header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+			header('Content-Disposition: attachment; filename="'. urlencode($fileName).'"');
+			$writer->save('php://output');
+		}else{
+			$this->load->view('kasir/fetch_laporan_penjualan', [
+				'data' => $data,
+				'title' => 'Laporan Penjualan',
+				'tanggal' => $tanggal
+			]);
+		}
+		
+	}
+
 	public function laba()
 	{
 		$this->load->view('kasir/laba_view');
@@ -361,6 +409,11 @@ class Option extends CI_Controller
 			'price' => $data,
 		];
 		echo json_encode($output);
+	}
+
+	public function laporan_penjualan()
+	{
+		$this->load->view('kasir/laporan_penjualan');
 	}
 
 	public function cetak($datas = [])
